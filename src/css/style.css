@@ -276,6 +276,19 @@ button {
   grid-column: 3;
 }
 
+.qty-decrease {
+  border: none;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.qty-decrease:hover {
+  background: #ccc;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -305,4 +318,157 @@ footer {
   padding: 8px 16px;
   font-size: 14px;
   margin-bottom: 10px;
+}
+
+
+/* just to watch de individual activity 3*/
+.products {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* cards */
+.section-grid li {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* img - card */
+.section-grid li img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* title of the card */
+.section-grid li h2 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* button checkout*/
+#checkoutBtn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 10rem;
+  height: 3rem;
+  font-size: 20px;
+}
+
+/** order summary */
+#orden-summary {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#orden-summary h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+#checkout-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#checkout-items li {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: flex-start; 
+  border-bottom: 1px solid #eee;
+  padding: 0.5rem 0;
+}
+
+
+#total {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+/* form desing*/
+.checkout-container {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+
+#checkout-form {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+}
+
+#checkout-form fieldset {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+#checkout-form legend {
+  font-weight: bold;
+  padding: 0 0.5rem;
+}
+
+#checkout-form label {
+  display: block;
+  margin: 0.5rem 0 0.2rem;
+}
+
+#checkout-form input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#orden-summary {
+  flex: 1;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fafafa;
+}
+
+#orden-summary h3 {
+  margin-top: 0;
+}
+
+#orden-summary ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#orden-summary li {
+  margin-bottom: 0.5rem;
 }
