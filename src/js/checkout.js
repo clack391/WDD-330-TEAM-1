@@ -1,4 +1,4 @@
-import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
+import { getLocalStorage, loadHeaderFooter, alertMessage } from "./utils.mjs";
 import CheckoutProcess from "./CheckoutProcess.mjs";
 
 loadHeaderFooter();
@@ -19,7 +19,6 @@ document.querySelector("#zipCode").addEventListener("change", () => {
   checkout.calculateTotal();
 });
 
-
 function renderCheckoutItems() {
   const items = getLocalStorage("so-cart") || [];
   const listElement = document.querySelector("#checkout-items");
@@ -39,13 +38,21 @@ function renderCheckoutItems() {
     .join("");
 }
 
-const form = document.querySelector("#checkout-form");
+document
+  .querySelector("#checkoutBtnForm")
+  .addEventListener("click", async (e) => {
+    e.preventDefault();
 
-form.addEventListener("submit", async (event) => {
-  event.preventDefault(); // prevenir recarga de página
+    const myForm = document.forms[0];
+    const isValid = myForm.checkValidity();
+    myForm.reportValidity();
 
-  const result = await checkout.checkout(form); // checkout es la instancia de CheckoutProcess
-
-  console.log(result); // aquí puedes ver la respuesta del servidor
-  alert("Order submitted successfully!"); // o mostrar ventana flotante
-});
+    if (isValid) {
+      try {
+        await checkout.checkout(e, myForm);
+        alertMessage("Order submitted successfully!");
+      } catch (error) {
+        alertMessage("There was a problem: " + error.message);
+      }
+    }
+  });
